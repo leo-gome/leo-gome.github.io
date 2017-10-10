@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Visual Analytics 2017 - 2</title>
+
+   
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	
+	<style>
+
+
+
+
+.axis--x path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+</style>
+
+<style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      fill: #242424;
+      text-align: center;
+      text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+      cursor: default;
+    }
+
+    .legend {
+      font-family: 'Raleway', sans-serif;
+      fill: #333333;
+    }
+  </style>
+
+<script src="RadarChart.js" charset="utf-8"></script>
+
+  </head>
+
+  <body>
+      
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" >Precipitación 2002 - 2016 Cundinamarca</a>
+        
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>¿Esta Colombia preparada para el cambio climático?</h1>
+              <h2 class="subheading">Análisis de precipitaciones y desastres Naturales en Cundinamarca de 2002 a 2016</h2>
+              <span class="meta">Posted by
+                <a >David Gomez</a>
+                9 de Octubre de 2017</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-heading">Registro histórico de precipitaciones en Cundinamarca
+</h2>
+            <p>Con el fin de realizar un análisis general del impacto del cambio climático en la dinámica meteorológica del país, 
+              se tomó como muestra el comportamiento de las precipitaciones en el departamento de Cundinamarca en los últimos 16 años:
+            </p>
+
+            <div class="radarChart1" style="display: inline-flex;"></div>
+            <div class="radarChart2" style="display: inline-flex;"></div>
+      
+      <p>En las dos graficas se puede observar, que, aunque hay una dinámica de estaciones, 
+        hay gran variabilidad entre el comportamiento de las precipitaciones entre los diferentes años.  
+        </p>
+
+        <p>
+            Por ejemplo, se observa que en los años 2008 y 2010 se tuvo un promedio de precipitación elevado en los meses de abril, 
+            mayo y noviembre, mientras que en los últimos años se observa una reducción del promedio de precipitación (2014 – 2016)
+        </p>
+      
+        <h2 class="section-heading">Desastres Naturales </h2>
+        
+        
+        <p>
+            Partiendo de la hipótesis que los comportamientos de las precipitaciones impactan en la aparición de desastres naturales, 
+            se realizó un análisis de los datos del departamento de Cundinamarca, diferenciando dos tipos, Inundaciones, 
+            las cuales pueden incluir avalanchas, creciente súbita, deslizamiento, 
+            ya que estos eventos se relacionaran con niveles elevados de precipitación. 
+            Adicionalmente se caracterizaron los eventos de incendios forestales, l
+            os cuales incluyen sequias, que se relacionan con niveles bajos de precipitación.
+            
+          </p>
+
+          <svg width="600" height="600" id="desastresNaturales"></svg>
+
+          <p>
+              En la gráfica se observa que hay una tendencia inversa, 
+              en la cual con el aumento de inundaciones se disminuye la cantidad de incendios forestales. 
+              Esto está alineado a la intuición ya que las inundaciones indican mayor cantidad de precipitación lo que i
+              mplica que la tierra tiene mayor humedad y por lo tanto dificulta que se presenten incendios forestales o sequias.
+              
+          </p>
+
+          <h2 class="section-heading">Precipitaciones y Desastres Naturales</h2>
+
+          <p>Con los resultados obtenidos se desea analizar si existe una relación entre el volumen de precipitaciones y 
+            los desastres naturales que se han presentado en los últimos años, para ello se muestra 
+            el comportamiento de los desastres naturales y la variación de las precipitaciones promedio:
+            </p>
+            
+      <svg width="600" height="600" id="lineChartComparativo"></svg>
+
+      <p>Observando la gráfica encontramos que hay una relación entre el volumen de precipitación y las inundaciones e incendios forestales, ya que, 
+        frente a crecimientos de la precipitación, la cantidad de desastres naturales relacionados con inundaciones aumentan. 
+        Con los incendios naturales no hay una relación tan directa ya que hay una dependencia del factor humano para empezar los incendios, 
+        aunque procesos de sequía facilitan la propagación de los mismos.
+          
+        </p>
+        
+        <h2 class="section-heading">Conclusiones</h2>
+
+        <p>
+            Teniendo en cuenta los resultados obtenidos se pude concluir lo siguiente:
+        </p>
+
+        <p>
+            •	El cambio climático ha afectado la dinámica de precipitaciones en el país, lo cual se puede observar con años de invierno y de sequía mucho más fuertes, 
+            en donde los niveles de precipitación varían de forma dramática (grafica 1) y los cuales salen del comportamiento promedio que se tenía.
+        </p>
+        •	El volumen de desastres naturales está estrechamente ligado con los niveles de precipitación y se ha encontrado con los desastres naturales 
+        han tenido una tendencia creciente en los últimos años.
+        
+        <p>
+            •	Se observa que los cambios drásticos en la dinámica de precipitaciones han traído consigo el aumento en eventos de inundaciones y sequias, 
+            y aunque se observa este comportamiento desde el 2008, la tasa de desastres naturales no ha disminuido, todo lo contrario, ha ido en aumento, 
+            lo que demuestra que los planes de mitigación realizados no han sido efectivos, dejando a Colombia y a su población altamente vulnerable a los cambios climáticos que estamos sufriendo.
+            
+        </p>
+
+        <h2 class="section-heading">Fuente de Datos</h2>
+
+        <p>Para el análisis realizado se utilizaron las siguientes fuentes de datos:</p>
+
+        <p>Precipitaciones históricas Cundinamarca: https://www.datos.gov.co/Ambiente-y-Desarrollo-Sostenible/Precipitaciones-Totales-Mensuales/mb4n-6m2g/data 
+          </p>
+
+          <p>Transporte Terrestre: https://www.datos.gov.co/Ambiente-y-Desarrollo-Sostenible/Emergencias-Naturales/xjv9-mim9/data
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://github.com/leo-gome/transporteColombia">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+
+    
+
+
+
+
+    
+  </body>
+  
+
+
+
+
+
+
+
+
+
+
+<script>
+//Definicion de las margenes para los Radial Charts
+var margin = { top: 50, right: 80, bottom: 50, left: 80 },
+				width = Math.min(900, window.innerWidth / 4) - margin.left - margin.right,
+				height = Math.min(width, window.innerHeight - margin.top - margin.bottom);
+
+//Informacion de las precipitaciones del 2002 al 2008 
+var data1 = [
+				{ name: '2002',
+        axes: [
+          {axis: 'Enero', value: 16},
+          {axis: 'Febrero', value: 30},
+          {axis: 'Marzo', value: 99},
+          {axis: 'Abril', value: 148},
+          {axis: 'Mayo', value: 98},
+          {axis: 'Junio', value: 81},
+          {axis: 'Julio', value: 49},
+          {axis: 'Agosto', value: 46},
+          {axis: 'Septiembre', value: 53},
+          {axis: 'Octubre', value: 79},
+          {axis: 'Noviembre', value: 50},
+          {axis: 'Diciembre', value: 56}
+        ]
+      },
+      { name: '2004',
+        axes: [
+          {axis: 'Enero', value: 39},
+          {axis: 'Febrero', value: 63},
+          {axis: 'Marzo', value: 62},
+          {axis: 'Abril', value: 145},
+          {axis: 'Mayo', value: 127},
+          {axis: 'Junio', value: 55},
+          {axis: 'Julio', value: 51},
+          {axis: 'Agosto', value: 31},
+          {axis: 'Septiembre', value: 78},
+          {axis: 'Octubre', value: 137},
+          {axis: 'Noviembre', value: 117},
+          {axis: 'Diciembre', value: 47}
+        ]
+      },
+      { name: '2006',
+        axes: [
+          {axis: 'Enero', value: 50},
+          {axis: 'Febrero', value: 35},
+          {axis: 'Marzo', value: 132},
+          {axis: 'Abril', value: 178},
+          {axis: 'Mayo', value: 137},
+          {axis: 'Junio', value: 92},
+          {axis: 'Julio', value: 29},
+          {axis: 'Agosto', value: 32},
+          {axis: 'Septiembre', value: 40},
+          {axis: 'Octubre', value: 133},
+          {axis: 'Noviembre', value: 120},
+          {axis: 'Diciembre', value: 61}
+        ]
+      },
+      { name: '2008',
+        axes: [
+          {axis: 'Enero', value: 72},
+          {axis: 'Febrero', value: 77},
+          {axis: 'Marzo', value: 107},
+          {axis: 'Abril', value: 103},
+          {axis: 'Mayo', value: 155},
+          {axis: 'Junio', value: 83},
+          {axis: 'Julio', value: 74},
+          {axis: 'Agosto', value: 105},
+          {axis: 'Septiembre', value: 65},
+          {axis: 'Octubre', value: 120},
+          {axis: 'Noviembre', value: 176},
+          {axis: 'Diciembre', value: 61}
+        ]
+      }
+    ];
+//Infomracion de las precipitaciones del 2010 al 2016
+var data2 = [
+  
+      { name: '2010',
+        axes: [
+          {axis: 'Enero', value: 12},
+          {axis: 'Febrero', value: 33},
+          {axis: 'Marzo', value: 38},
+          {axis: 'Abril', value: 198},
+          {axis: 'Mayo', value: 171},
+          {axis: 'Junio', value: 81},
+          {axis: 'Julio', value: 149},
+          {axis: 'Agosto', value: 58},
+          {axis: 'Septiembre', value: 94},
+          {axis: 'Octubre', value: 132},
+          {axis: 'Noviembre', value: 209},
+          {axis: 'Diciembre', value: 109}
+        ]
+      },
+      { name: '2012',
+        axes: [
+          {axis: 'Enero', value: 95},
+          {axis: 'Febrero', value: 55},
+          {axis: 'Marzo', value: 109},
+          {axis: 'Abril', value: 216},
+          {axis: 'Mayo', value: 62},
+          {axis: 'Junio', value: 50},
+          {axis: 'Julio', value: 70},
+          {axis: 'Agosto', value: 56},
+          {axis: 'Septiembre', value: 32},
+          {axis: 'Octubre', value: 145},
+          {axis: 'Noviembre', value: 79},
+          {axis: 'Diciembre', value: 52}
+        ]
+      },
+      { name: '2014',
+        axes: [
+          {axis: 'Enero', value: 58},
+          {axis: 'Febrero', value: 82},
+          {axis: 'Marzo', value: 107},
+          {axis: 'Abril', value: 79},
+          {axis: 'Mayo', value: 116},
+          {axis: 'Junio', value: 59},
+          {axis: 'Julio', value: 41},
+          {axis: 'Agosto', value: 32},
+          {axis: 'Septiembre', value: 43},
+          {axis: 'Octubre', value: 107},
+          {axis: 'Noviembre', value: 117},
+          {axis: 'Diciembre', value: 81}
+        ]
+      },
+      { name: '2016',
+        axes: [
+          {axis: 'Enero', value: 22},
+          {axis: 'Febrero', value: 37},
+          {axis: 'Marzo', value: 94},
+          {axis: 'Abril', value: 141},
+          {axis: 'Mayo', value: 96},
+          {axis: 'Junio', value: 41},
+          {axis: 'Julio', value: 52},
+          {axis: 'Agosto', value: 35},
+          {axis: 'Septiembre', value: 69},
+          {axis: 'Octubre', value: 109},
+          {axis: 'Noviembre', value: 133},
+          {axis: 'Diciembre', value: 78}
+        ]
+      }
+
+];
+
+//deficion de las caracteristicas de la primera grafica radial
+var radarChartOptions1 = {
+			  w: 290,
+			  h: 350,
+			  margin: margin,
+			  maxValue: 60,
+			  levels: 6,
+			  roundStrokes: false,
+			  color: d3.scaleOrdinal().range(["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e", "#316395", "#994499", "#22aa99", "#aaaa11", "#6633cc", "#e67300", "#8b0707", "#651067", "#329262", "#5574a6", "#3b3eac"]),
+				format: '.0f',
+				legend: { title: 'Precipitación 2000 - 2006', translateX: 100, translateY: 40 },
+				unit: ''
+			};
+
+			// Se llama al metdo de la grafica radial que retorna un SVG del RadarChart.svg
+      let svg_radar2 = RadarChart(".radarChart1", data1, radarChartOptions1); 
+      
+      //deficion de las caracteristicas de la segunda grafica radial
+      var radarChartOptions2 = {
+			  w: 290,
+			  h: 350,
+			  margin: margin,
+			  maxValue: 60,
+			  levels: 6,
+			  roundStrokes: false,
+			  color: d3.scaleOrdinal(d3.schemeCategory10),
+				format: '.0f',
+				legend: { title: 'Precipitación 2008 - 2016', translateX: 100, translateY: 40 },
+				unit: ''
+      };
+      // Se llama al metdo de la grafica radial que retorna un SVG del RadarChart.svg
+      let svg_radar3 = RadarChart(".radarChart2", data2, radarChartOptions2);
+</script>
+
+
+
+<!-- Codigo para generar el Bar Chart de Desastres Naturales-->
+<script>
+    
+    // Se busca el objeto SVG para incluir la grafica
+    var svg2 = d3.select("#desastresNaturales"),
+        margin2 = {top: 120, right: 120, bottom: 30, left: 40},
+        width2 = +svg2.attr("width") - margin2.left - margin2.right,
+        height2 = +svg2.attr("height") - margin2.top - margin2.bottom,
+        g2 = svg2.append("g").attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+    
+    // Se definen las escalas los grupos de barras
+    var x0 = d3.scaleBand()
+        .rangeRound([0, width2])
+        .paddingInner(0.1);
+    
+        // se definen las escalas para las barras de los grupos
+    var x1 = d3.scaleBand()
+        .padding(0.05);
+    
+
+    // se definen las escalas para el tamano de las barras    
+    var y = d3.scaleLinear()
+        .rangeRound([height2, 0]);
+    
+    // se defninen los colores para los diferentes sets de datos
+    var z = d3.scaleOrdinal(d3.schemeCategory10);
+    
+    // Se realiza la carga de la informacion
+    d3.csv("data.csv", function(d, i, columns) {
+      for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+    
+      var keys = data.columns.slice(1);
+      //Se definen los rangos para las escalas definidas
+      x0.domain(data.map(function(d) { return d.Año; }));
+      x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+      y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+    
+      //Se adicionan los elementos al SVG
+      g2.append("g")
+        .selectAll("g")
+        .data(data)
+        .enter().append("g")
+          .attr("transform", function(d) { return "translate(" + x0(d.Año) + ",0)"; })
+        .selectAll("rect")
+        .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+        .enter().append("rect")
+          .attr("x", function(d) { return x1(d.key); })
+          .attr("y", function(d) { return y(d.value); })
+          .attr("width", x1.bandwidth())
+          .attr("height", function(d) { return height2 - y(d.value); })
+          .attr("fill", function(d) { return z(d.key); });
+      // Se adicionan eje x
+      g2.append("g")
+          .attr("class", "axis")
+          .attr("transform", "translate(0," + height2 + ")")
+          .call(d3.axisBottom(x0));
+      // Se adicionan eje y
+      g2.append("g")
+          .attr("class", "axis")
+          .call(d3.axisLeft(y).ticks(null, "s"))
+        .append("text")
+          .attr("x", 2)
+          .attr("y", y(y.ticks().pop()) + 0.5)
+          .attr("dy", "0.32em")
+          .attr("fill", "#000")
+          .attr("font-weight", "bold")
+          .attr("text-anchor", "start")
+          .text("Population");
+      
+      var legend = g2.append("g")
+          .attr("font-family", "sans-serif")
+          .attr("font-size", 10)
+          .attr("text-anchor", "end")
+        .selectAll("g")
+        .data(keys.slice().reverse())
+        .enter().append("g")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      
+          // Se adicionan las descripciones de las series de datos
+      legend.append("rect")
+          .attr("x", width2 + 105)
+          .attr("width", 19)
+          .attr("height", 19)
+          .attr("fill", z);
+    
+      legend.append("text")
+          .attr("x", width2 + 95)
+          .attr("y", 9.5)
+          .attr("dy", "0.32em")
+          .text(function(d) { return d; });
+    });
+    
+    </script>
+
+
+<script>
+    //Seleccion del SVG para incluir la grafica
+    var svg3 = d3.select("#lineChartComparativo"),
+        margin3 = {top: 20, right: 100, bottom: 30, left: 50},
+        width3 = svg3.attr("width") - margin3.left - margin3.right,
+        height3 = svg3.attr("height") - margin3.top - margin3.bottom,
+        g3 = svg3.append("g").attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+    
+    
+    //Definicion de las escalas a utilizar
+    var x3 = d3.scaleLinear().range([0, width3]),
+        y3 = d3.scaleLinear().range([height3, 0]),
+        z3 = d3.scaleOrdinal(d3.schemeCategory10);
+    //Definicion de la funcion para realizar las lineas entre los puntos
+    var line = d3.line()
+        .curve(d3.curveBasis)
+        .x(function(d) { return x3(d.date); })
+        .y(function(d) { return y3(d.crecimiento); });
+    
+    //Cargar la informacion
+    d3.csv("data2.csv", function(error3, data3) {
+      if (error3) throw error3;
+      //Seleccion de las diferentes series de la visualzacion
+      var conceptos = data3.columns.slice(1).map(function(id) {
+        return {
+          id: id,
+          values: data3.map(function(d) {
+            return {date: d.date, crecimiento: d[id]};
+          })
+        };
+      });
+      
+      //Definicion de los dominios de las escalas
+      x3.domain(d3.extent(data3, function(d) { return d.date; }));
+      
+      y3.domain([
+        0,
+        250
+      ]);
+
+      
+    
+      z3.domain(conceptos.map(function(c) { return c.id; }));
+    
+      //Inclusion de los elementos del grafico
+      g3.append("g")
+          .attr("class", "axis axis--x")
+          .attr("transform", "translate(0," + height3 + ")")
+          .call(d3.axisBottom(x3));
+    
+      g3.append("g")
+          .attr("class", "axis axis--y")
+          .call(d3.axisLeft(y3))
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", "0.71em")
+          .attr("fill", "#000")
+          .text("Tasa de Crecimiento");
+    
+      var concepto = g3.selectAll(".concepto")
+        .data(conceptos)
+        .enter().append("g")
+          .attr("class", "concepto");
+    
+      concepto.append("path")
+          .attr("class", "line")
+          .attr("d", function(d) { return line(d.values); })
+          .style("stroke", function(d) { return z3(d.id); });
+    
+      concepto.append("text")
+          .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
+          .attr("transform", function(d) { return "translate(" + x3(d.value.date) + "," + y3(d.value.crecimiento) + ")"; })
+          .attr("x", 3)
+          .attr("dy", "0.35em")
+          .style("font", "10px sans-serif")
+          .text(function(d) { return d.id; });
+    });
+    //Funcion para retornar las diferentes series el grafico
+    function type(d, _, columns) {
+      
+      for (var i = 1, n = columns.length, c; i < n; ++i) d[c = columns[i]] = +d[c];
+      return d;
+    }
+    
+    </script>
+
+
+</html>
