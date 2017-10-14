@@ -328,11 +328,25 @@
         .data(years2)
         .enter().append("g")
           .attr("class", "year");
-    
+      
+      //Sugerencia alefro 77
+      var st = "", cs = ""
       year.append("path")
           .attr("class", "line")
           .attr("d", function(d) { return line2(d.values); })
-          .style("stroke", function(d) { return z2(d.id); });
+          .style("stroke", function(d) { return z2(d.id); })
+	  //Sugerencia alefro 77 Cualquier ayuda en la visualización a un cliente es bienvenida
+	    .on("mouseover", function (d) {  
+            st = d3.select(this).attr("style");
+            cs = $(this).next().attr("style");                               
+            d3.select(this)                          //on mouseover of each line, give it a nice thick stroke
+            .attr("style",'stroke-width: 8px')
+            $(this).next().attr("style", {"font-size": "14px", "font-weight": "bold"});
+        }).on("mouseout", function(d){
+          d3.select(this)                          //on mouseover of each line, give it a nice thick stroke
+          .attr("style",st)
+          $(this).next().attr("style", cs);
+        });
     
       year.append("text")
           .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
