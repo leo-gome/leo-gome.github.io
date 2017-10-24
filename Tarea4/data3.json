@@ -1,0 +1,57 @@
+{
+"nodes":[
+
+{"id":"AMAZONAS","group":2,"radio":5,"color":"#ffb3b3","text":" "},
+{"id":"ANTIOQUIA","group":4,"radio":5,"color":"#ff4d4d","text":" "},
+{"id":"ARAUCA","group":3,"radio":5,"color":"#ff8080","text":" "},
+{"id":"BOLIVAR","group":4,"radio":5,"color":"#ff4d4d","text":" "},
+{"id":"BOYACA","group":1,"radio":5,"color":"#ffe6e6","text":" "},
+{"id":"CALDAS","group":1,"radio":5,"color":"#ffe6e6","text":" "},
+{"id":"CAQUETA","group":5,"radio":5,"color":"#ff0000","text":" "},
+{"id":"CAUCA","group":3,"radio":5,"color":"#ff8080","text":" "},
+{"id":"CHOCO","group":1,"radio":5,"color":"#ffe6e6","text":" "},
+{"id":"CORDOBA","group":2,"radio":5,"color":"#ffb3b3","text":" "},
+{"id":"CUNDINAMARCA","group":1,"radio":5,"color":"#ffe6e6","text":" "},
+{"id":"GUANIA","group":2,"radio":5,"color":"#ffb3b3","text":" "},
+{"id":"GUAVIARE","group":5,"radio":5,"color":"#ff0000","text":" "},
+{"id":"GUAJIRA","group":1,"radio":5,"color":"#ffe6e6","text":" "},
+{"id":"MAGDALENA","group":1,"radio":5,"color":"#ffe6e6","text":" "},
+{"id":"META","group":5,"radio":5,"color":"#ff0000","text":" "},
+{"id":"NARINO","group":5,"radio":5,"color":"#ff0000","text":" "},
+{"id":"NORTE DE SANTANDER","group":4,"radio":5,"color":"#ff4d4d","text":" "},
+{"id":"PUTUMAYO","group":5,"radio":5,"color":"#ff0000","text":" "},
+{"id":"SANTANDER","group":2,"radio":5,"color":"#ffb3b3","text":" "},
+{"id":"VALLE DEL CAUCA","group":1,"radio":5,"color":"#ffe6e6","text":" "},
+{"id":"VAUPES","group":2,"radio":5,"color":"#ffb3b3","text":" "},
+{"id":"VICHADA","group":5,"radio":5,"color":"#ff0000","text":" "},
+{"id":"FARC","group":6,"radio":10,"color":"#0066ff","text":" Ataques 64"},
+{"id":"ELN","group":7,"radio":10,"color":"#ffff00","text":" Ataques 7"},
+{"id":"OTROS GRUPOS","group":8,"radio":10,"color":"#33cccc","text":" Ataques 4"}
+],
+"links":[
+
+{"source":"FARC","target":"ANTIOQUIA","value":4},
+{"source":"FARC","target":"ARAUCA","value":4},
+{"source":"FARC","target":"BOLIVAR","value":2},
+{"source":"FARC","target":"BOYACA","value":2},
+{"source":"FARC","target":"CALDAS","value":3},
+{"source":"FARC","target":"CAQUETA","value":9},
+{"source":"FARC","target":"CAUCA","value":13},
+{"source":"FARC","target":"CUNDINAMARCA","value":2},
+{"source":"FARC","target":"META","value":2},
+{"source":"FARC","target":"NARINO","value":19},
+{"source":"FARC","target":"NORTE DE SANTANDER","value":1},
+{"source":"FARC","target":"PUTUMAYO","value":1},
+{"source":"FARC","target":"SANTANDER","value":1},
+{"source":"FARC","target":"VALLE DEL CAUCA","value":1},
+
+{"source":"ELN","target":"ANTIOQUIA","value":2},
+{"source":"ELN","target":"CAUCA","value":3},
+{"source":"ELN","target":"NARINO","value":2},
+
+{"source":"OTROS GRUPOS","target":"ARAUCA","value":2},
+{"source":"OTROS GRUPOS","target":"GUAJIRA","value":1},
+{"source":"OTROS GRUPOS","target":"NORTE DE SANTANDER","value":1}
+
+]
+}
