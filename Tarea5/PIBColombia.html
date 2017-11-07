@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Visual Analytics 2017 - 2</title>
+
+   
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	
+	<style>
+
+
+
+
+.axis--x path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+</style>
+
+<style>
+  
+  .links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+  }
+  
+  .nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+  }
+
+  .nodes triangle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+  }
+  
+  </style>
+
+<style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      fill: #242424;
+      text-align: center;
+      text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+      cursor: default;
+    }
+
+    .legend {
+      font-family: 'Raleway', sans-serif;
+      fill: #333333;
+    }
+  </style>
+
+
+  </head>
+
+  <body onload="drawPIB('PIB2000C.json')">
+      
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" >PIB Colombia</a>
+        
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-tarea5.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>¿Ha cambiado la distribucion del PIB en Colombia en los ultimos años?</h1>
+              <h2 class="subheading">Análisis del comportamiento de PIB de Colombia 
+                en los ultimos 15 años.
+              </h2>
+              <span class="meta">Posted by
+                <a >David Gomez</a>
+                7 de Noviembre de 2017</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+              <h2 class="section-heading"> PIB – Histórico Colombia                </h2>
+            <p align="left">
+                Para realizar el análisis se tomaron los datos del Banco de la Republica y se generaron las visualizaciones 
+                para los datos históricos de los años 2000 – 2016. A continuación, se presenta la distribución del PIB en 
+                diferentes categorías, y como se distribuye en los diferentes ítems básicos de la economía:
+                
+            </p>
+            <select id="YearPIB" align="center" onchange="changeViz()">
+                <option value="PIB2000C.json">2000</option>
+                <option value="PIB2002.json">2002</option>
+                <option value="PIB2004.json">2004</option>
+                <option value="PIB2006.json">2006</option>
+                <option value="PIB2008.json">2008</option>
+                <option value="PIB2010.json">2010</option>
+                <option value="PIB2012.json">2012</option>
+                <option value="PIB2014.json">2014</option>
+                <option value="PIB2016.json">2016</option>
+              </select>
+
+             <div id="PIB_DIV"> 
+            <svg width="1000" height="600" id="PIB"></svg>
+          </div>
+            <p align="left">
+                Se puede observar que el sector financiero es el componente más importante de la economía colombiana, el cual ha 
+                mantenido su posición en la participación del PIB en los últimos 16 años. También podemos observar que la industria 
+                manufacturera ha perdido importancia en los últimos años y ha sido remplazada por el comercio, lo que indica que en el 
+                país se ha debilitado la industria, lo que puede ser posible por la cantidad de tratados de libre comercio que ha hecho 
+                que se aumente la competencia para la industria local.
+            </p>
+
+            <p align="left">
+
+                También se observa que el sector agrícola se ha debilitado en los últimos años, tal vez por las mismas razones que el 
+                sector manufacturero. Es posible que este sector se recupere con los programas asociados a los procesos de paz.
+                
+            </p>
+          
+
+        <h2 class="section-heading">Fuente de Datos</h2>
+
+        <p align="left">Para el análisis realizado se utilizaron las siguientes fuentes de datos:</p>
+
+        <p align="left">PIB Historico Colombia 2000 - 2016: http://www.banrep.gov.co/es/contenidos/page/pib-precios-constantes-ramas_2 
+        </p>
+            
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://github.com/leo-gome/PIBColombia">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+
+    
+
+
+
+
+    
+  </body>
+
+<script>
+  function changeViz()
+  {
+    var year = document.getElementById("YearPIB").value;
+    d3.select("#PIB").remove();
+    d3.select("#PIB_DIV").append("svg")
+    .attr("id","PIB")
+    .attr("width", 1000)
+    .attr("height", 600);
+    d3.select("#tooltip").remove();
+    drawPIB(year);
+  }
+</script>
+<script>
+    function drawPIB(selectedData)
+    {
+      var svg = d3.select("#PIB"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+    var tooltip = 	d3.select('body').append('div')
+          .attr('id','tooltip')
+					.style('position', 'absolute')
+					.style('padding', '0 10 px')
+					.style('background', 'white')
+					.style('opacity', 0);
+    
+    var x = d3.scaleLinear()
+        .range([0, width]);
+    
+    var y = d3.scaleLinear()
+        .range([0, height]);
+    
+    var color = d3.scaleOrdinal(d3.schemeCategory20c);
+    
+    var partition = d3.partition()
+        .size([width, height])
+        .padding(1)
+        .round(true);
+    
+    var rect = svg.selectAll("rect");
+    var label = svg.selectAll(".label")
+    
+    d3.json(selectedData, function(error, root) {
+      if (error) throw error;
+    
+      root = d3.hierarchy(d3.entries(root)[0], function(d) {
+          return d3.entries(d.value)
+        })
+        .sum(function(d) { return d.value })
+        .sort(function(a, b) { return b.value - a.value; });
+      console.log(root);
+      partition(root);
+      console.log(Object.keys(root));
+      
+      
+
+
+      rect = rect
+          .data(root.descendants())
+        .enter().append("rect")
+          .attr("x", 
+          function(d) 
+          { 
+            console.log("x0:"+d.x0);
+            console.log("x1:"+d.x1);
+            console.log("y0:"+d.y0);
+            console.log("y1:"+d.y1);
+            return d.x0; 
+          })
+          .attr("y", function(d) { return d.y0; })
+          .attr("width", function(d) { return d.x1 - d.x0; })
+          .attr("height", function(d) { return d.y1 - d.y0; })
+          .attr("fill", function(d) { return color((d.children ? d : d.parent).data.key); })
+          //.on("click", clicked)
+          .on('mouseover', function (d, i) 
+          {
+  			      tooltip.transition()
+  				    .style('opacity', .9)
+              tooltip.html(d.data.key +": "+d.value+" miles de millones de pesos")
+  				    .style('left', (d3.event.pageX + 30) + 'px')
+  				    .style('top', (d3.event.pageY - 10) + 'px')
+   				    .style('opacity', .5)
+  				    .style('fill', 'red')
+          })
+
+          ;
+
+      label = label
+      .data(root.descendants(function(d) { return (d.x1-d.x0) > 50; }))
+      .enter().append("text")
+      .attr("class", "label")
+      .attr("dy", ".35em")
+      .attr("transform", function(d) { return "translate(" + ((d.x0 + d.x1) / 2) + "," + ((d.y0 + d.y1 -150 )/ 2) + ")rotate(90)"; })
+      .text(function(d) { return d.children ? d.data.key :"" });
+      
+    });
+    
+    function clicked(d) {
+      x.domain([d.x0, d.x1]);
+      y.domain([d.y0, height]).range([d.depth ? 20 : 0, height]);
+    
+      rect.transition()
+          .duration(750)
+          .attr("x", function(d) { return x(d.x0); })
+          .attr("y", function(d) { return y(d.y0); })
+          .attr("width", function(d) { return x(d.x1) - x(d.x0); })
+          .attr("height", function(d) { return y(d.y1) - y(d.y0); })
+          //.attr("fill", function(d) { return color(d.data.key); })
+          ;
+    }
+    }
+    
+    
+    </script>
+  
+  </html>

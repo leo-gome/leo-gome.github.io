@@ -1,0 +1,112 @@
+{
+    "PIB 2006":
+        {
+           "Agricultura":{
+           
+               "cafe":3177,
+               "otros cultivos":11864,
+               "Produccion pecuaria":10334,
+               "Silvicultura":1527
+           
+        },
+        
+           "Minas y Canteras":{
+           
+               "Carbon":5331,
+               "Petroleo y derivados":13304,
+               "Minerales Metalicos":2017,
+               "Minerales No Metalicos":1238
+        },
+           
+        
+           "Industria Manufacturera":{
+           
+               "Transformacion Carne y Pescado":1092,
+               "Produccion Aceites":2097,
+               "Produccion Lacteros":895,
+               "Produccion Harinas":2835,
+               "Productos Cafe":556,
+               "Azucar":715,
+               "Bebidas":3066,
+               "Telas e Hilos":966,
+               "Otros productos textiles":596,
+               "Fabricacion Ropa":3597,
+               "Marroquineria":1037,
+               "Ebanisteria":710,
+               "Productos de Papel":1813,
+               "Audiovisuales":2000,
+               "Derivados Petroleo":7156,
+               "Productos Quimicos":6342,
+               "Productos Plasticos":2106,
+               "Productos Minerales no Metalicos":4165,
+               "Productos Metalurgicos basicos":3406,
+               "Fabricacion de Maquinaria":1448,
+               "Suministro Electrico":1260,
+               "Equipos de transporte":1062,
+               "Faricacion de Muebles":1061,
+               "Industrias Manufactureras":1372
+
+           
+        },
+            "Suministro Gas, electricidad y Agua":{
+            
+                "Provedores Electricos":8852,
+                "Gas Domiciliario":1296,
+                "Proveedores Acueducto":4212
+
+        },
+
+            "Construccion":{
+            
+                "Construccion Edificaciones":11150,
+                "Ingenieria Civil":10063
+                
+            
+
+        },
+        
+            "Comercio":{
+            
+                "Comercio":29699,
+                "Mantenimiento de Vehiculos":3920,
+                "Hoteles":9898
+            
+
+        },
+            "Transporte":{
+            
+                "Transporte Terrestre":11751,
+                "Transporte Aereo":1565,
+                "Otro Transportes":2441,
+                "Telecomunicaciones":10035            
+        },
+            "Sector Financiero":{
+            
+                "Intermediacion Financiera":14869,
+                "Actividades Inmobiliarias":31376,
+                "Actividades Empresariales":23044
+            
+
+        },
+            "Actividades Sociales":{
+                "Administracion Publica":30649,
+                "Educacion de Mercado":7181,
+                "Servicios Sociales":7761,
+                "Actividades de asociaciones":8004,
+                "Hogares Privados":2977
+            
+
+        },
+            "Impuestos":{
+            
+                "IVA no Deducible":19960,
+                "Importaciones":3607,
+                "Impuestos":9043,
+                "Subvenciones":560
+            
+
+        }
+    }
+        
+    
+}
