@@ -25,9 +25,14 @@ d3.csv(archivo, function(error, colegios) {
 // Extract the list of dimensions and create a scale for each.
 x.domain(dimensions = d3.keys(colegios[0]).filter(function(d) {
   return d != "Nombre" && (y[d] = d3.scale.linear()
-      .domain(d3.extent(colegios, function(p) { return +p[d]; }))
+      .domain([0,10])
       .range([height, 0]));
 }));
+
+// add the tooltip area to the webpage
+var tooltip = d3.select("#DParallelCoordinates").append("div")
+.attr("class", "tooltip")
+.style("opacity", 0);
 
 // Add grey background lines for context.
 background = svg.append("g")
@@ -43,7 +48,18 @@ foreground = svg.append("g")
   .selectAll("path")
     .data(colegios)
   .enter().append("path")
-    .attr("d", path);
+    .attr("d", path)
+    .on("mouseover", function(d) {
+      tooltip.transition()
+           .duration(200)
+           .style("opacity", .9);
+      tooltip.html(colegios.Nombre);
+  })
+  .on("mouseout", function(d) {
+      tooltip.transition()
+           .duration(500)
+           .style("opacity", 0);
+  });;
 
 // Add a group element for each dimension.
 var g = svg.selectAll(".dimension")

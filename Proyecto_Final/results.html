@@ -15,11 +15,11 @@
 
     <!-- Custom styles for this template -->
     <link href="./css/one-page-wonder-results.css" rel="stylesheet">
-    
+    <link href="./css/scatterPlot.css" rel="stylesheet">
 
   </head>
 
-  <body onload='drawParallelCoordinates("colegios_total.csv")'>
+  <body onload="scatterPlot('Total')">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -60,9 +60,47 @@
     <section>
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6 order-2">
-            <div class="p-5">
-              <img class="img-fluid rounded-circle"  src="./img/data.jpg" alt="">
+          <div class="col-md-12 order-2">
+            <div class="p-12" id='DscatterPlot'>
+              <svg id="scatterPlot"/>
+              <h2 class="display-4" >Data Correlation</h2>
+              <div id="Categoria">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Environment Cateory</th>
+                      <th></th>
+                      <th>Data Correlation</th>
+                    </tr>
+                  </thead>
+                    <tbody>
+                      <tr>
+                        <td>Category</td>
+                        <td>    
+                                <select  id="Category" onchange="SeleccionCategoria()">
+                                  <option value="Total">Total</option>
+                                  <option  value="Bares">Bars</option>
+                                  <option  value="Seguridad">Secutiry</option>
+                                  <option  value="Act Impacto">Impact Activities</option>
+                                  <option  value="Policia">Police</option>
+                                  <option  value="Salud">Health</option>
+                                  <option  value="Cultura">Culture</option>
+                                  <option  value="Deporte">Sports</option>
+                                  </select>  
+                        </td>
+                        <td><input type="text" class="form-control" id="Correlation" value ="0.222607037" readonly></td>
+                      </tr>
+                      </tbody>
+                  </table>
+
+              </div>
+
+  </div>
+
+
+
+
+
             </div>
           </div>
           <div class="col-md-6 order-1">
@@ -132,36 +170,50 @@
     <script src="./vendor/jquery/jquery.min.js"></script>
     <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="//d3js.org/d3.v3.min.js"></script>
-    <script src="./parallelCoordinates.js"></script>
-  </body>
+    <script src="./matrixScatterPlot.js"></script>
 
-  <script>
-      function SeleccionLocalidad() {
-          var x = document.getElementById("localidad").value;
-          drawParallelCoordinates(x);
+    <script>
+      function SeleccionCategoria() {
+          var x = document.getElementById("Category").value;
+          scatterPlot(x);
+          if(x=="Total")
+          {
+            document.getElementById("Correlation").value = "0.222607037";
+          }
+          else if(x=="Bares")
+          {
+            document.getElementById("Correlation").value = "0.228958649";
+          }
+          else if(x=="Seguridad")
+          {
+            document.getElementById("Correlation").value = "0.219877547";
+          }
+          else if(x=="Act Impacto")
+          {
+            document.getElementById("Correlation").value = "0.146843471";
+          }
+          else if(x=="Policia")
+          {
+            document.getElementById("Correlation").value = "-0.21889252"; 
+          }
+          else if(x=="Salud")
+          {
+            document.getElementById("Correlation").value = "0.178328043";
+          }
+          else if(x=="Cultura")
+          {
+            document.getElementById("Correlation").value = "-0.389293195";
+          }
+          else if(x=="Deporte")
+          {
+            document.getElementById("Correlation").value = "0.1988265";
+          }
+
       }
   </script>
 
-<script>
-    function SeleccionTipo() {
-        var x = document.getElementById("tipo").value;
-        drawParallelCoordinates(x);
-    }
-</script>
+  </body>
 
-<script>
-    function SeleccionJornada() {
-        var x = document.getElementById("jornada").value;
-        drawParallelCoordinates(x);
-    }
-</script>
-
-<script>
-    function SeleccionSector() {
-        var x = document.getElementById("sector").value;
-        drawParallelCoordinates(x);
-    }
-</script>
 
 
 
