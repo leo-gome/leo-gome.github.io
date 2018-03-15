@@ -316,9 +316,176 @@
 
 
             <h3>Mapa de Seguridad</h3>
-            <div id="map"></div>
+
+            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example"></table>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                            <div style="width:500px; height:500px;">
+                                    <div id="map" style="width: 100%; height: 100%"></div>
+                            </div>    
+                        
+                        
+                    </td>
+                    <td>
+                        <tr>
+                        <td>Busca tu estacion de policia mas cercana</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="result"><button type="button" onclick="buscar_estacion()">Buscar</button></div>
+                            </td>
+                        </tr>
+                    </td>
+                </tr>
+            </tbody>
+            
+            <script>
+                
+            </script>
+
+
+            <script>
+
+                    var map;
+                    function initMap() {
+                      var uluru = {lat: 4.7110, lng: -74.0721};
+                      map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 11,
+                        center: uluru
+                      });
+                     
+                      var pol1 = {lat: 4.7416959,	lng:-74.0259599};
+
+                    var marker = new google.maps.Marker({
+                    position: pol1,
+                    
+                    title: 'Estación De Policía Usaquén'
+                        });
+                    
+                    marker.setMap(map);
+
+                    var pol2 = {lat: 4.6413995,	lng:-74.058852};
+
+                    var marker2 = new google.maps.Marker({
+                    position: pol2,
+                    title: 'Estación De Policía Chapinero'
+                    });
+
+                    marker2.setMap(map);
+
+                    var pol3 = {lat: 4.6021754,	lng:-74.0658331};
+
+                    var marker3 = new google.maps.Marker({
+                    position: pol3,
+                    title: 'Estación de Policía Santa Fé'
+                    });
+
+                    marker3.setMap(map);
+
+                    var pol4 = {lat: 4.6041377,	lng:-74.1238941};
+
+                    var marker4 = new google.maps.Marker({
+                    position: pol4,
+                    title: 'Estación de Policía San Cristobal'
+                    });
+
+                    marker4.setMap(map);
+
+                    var pol5 = {lat: 4.516788,	lng:-74.116996};
+
+                    var marker5 = new google.maps.Marker({
+                    position: pol5,
+                    title: 'Estación de Policía Usme'
+                    });
+
+                    marker5.setMap(map);
+
+
+                    var pol6 = {lat: 4.5855283,	lng:-74.1332516};
+
+                    var marker6 = new google.maps.Marker({
+                    position: pol6,
+                    title: 'Estación de Policía Tunjuelito'
+                    });
+                    marker6.setMap(map);
+
+                    var pol7 = {lat: 4.6001443,	lng:-74.1865325};
+
+                    var marker7 = new google.maps.Marker({
+                    position: pol7,
+                    title: 'Estación de Policía Bosa'
+                    });
+                    marker7.setMap(map);
+                    
+                    var pol8 = {lat: 4.6202813,	lng:-74.1596611};
+
+                    var marker8 = new google.maps.Marker({
+                    position: pol8,
+                    title: 'Estación de Policía Kennedy'
+                    });
+                    marker8.setMap(map);
+
+                    
+                    
+                    
+                    
+
+
+                    
+
+
+
+            }
+
+            function buscar_estacion()
+                {
+                    
+                    
+                    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+                    var icons = {
+                    parking: {
+                    icon: iconBase + 'parking_lot_maps.png'
+                    },
+          library: {
+            icon: iconBase + 'library_maps.png'
+          },
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+
+                    navigator.geolocation.getCurrentPosition(function(user_position) 
+                    {
+                        var userPos = {lat: user_position.coords.latitude, lng: user_position.coords.longitude}
+                        
+                        var user_marker = new google.maps.Marker({
+                    position: userPos,
+                    icon: icons['library'].icon,
+                    title: 'Ubicacion Actual'
+                    });
+                    user_marker.setMap(map);
+                    map.setCenter(userPos);
+                    });
+
+                    
+
+
+                }
+
+                    
+
+                  </script>
     
-    
+
+
+    <script type="text/javascript">(function(){var ldk=document.createElement('script');ldk.type='text/javascript';ldk.async=true;ldk.src='https://s.cliengo.com/weboptimizer/5aa9b397e4b08c88608e66c1/5aa9b6b2e4b08c88608e6703.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ldk, s);})();</script>
 
         </div>
         <!-- /#page-wrapper -->
@@ -344,22 +511,6 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR-HTVXvgayiCtbzDo6mIGtCKhi97NXBM&callback=initMap">
     </script>
-
-<script>
-    function initMap() 
-    {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: uluru
-        });
-    var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-    });
-    }
-</script>
-
 </body>
 
 </html>
