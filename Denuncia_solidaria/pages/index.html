@@ -327,7 +327,7 @@
             <tbody>
                 <tr>
                     <td>
-                            <div style="width:500px; height:500px;">
+                            <div style="width:100%; height:400px;">
                                     <div id="map" style="width: 100%; height: 100%"></div>
                             </div>    
                         
@@ -447,7 +447,8 @@
             function buscar_estacion()
                 {
                     
-                    
+                    var user_latitude;
+                    var user_longitude;
                     var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
                     var icons = {
                     parking: {
@@ -464,7 +465,8 @@
                     navigator.geolocation.getCurrentPosition(function(user_position) 
                     {
                         var userPos = {lat: user_position.coords.latitude, lng: user_position.coords.longitude}
-                        
+                        user_latitude = user_position.coords.latitude;
+                        user_longitude = user_position.coords.longitude;
                         var user_marker = new google.maps.Marker({
                     position: userPos,
                     icon: icons['library'].icon,
@@ -473,8 +475,11 @@
                     user_marker.setMap(map);
                     map.setCenter(userPos);
                     });
-
                     
+
+                    var coordinates = [{},]
+
+
 
 
                 }
