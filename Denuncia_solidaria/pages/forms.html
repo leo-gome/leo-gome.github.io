@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Formulario de Denuncia</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_7zlMsNlNZCk71Gfv34fXe");
+       })();
+    </script>
 </head>
 
 <body>
@@ -83,7 +88,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Forms</h1>
+                    <h1 class="page-header">Formulario de Denuncias</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -100,7 +105,7 @@
                                     <form role="form">
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control" placeholder="Ingrese su nombre completo">
+                                            <input id = "to_name" class="form-control" placeholder="Ingrese su nombre completo">
                                         </div>
                                         <div class="form-group">
                                                 <label>Numero de Identificacion</label>
@@ -116,7 +121,7 @@
 
                                         <div class="form-group">
                                                 <label>Correo electronico</label>
-                                                <input class="form-control" placeholder="Ingrese la direccion de su correo electronico">
+                                                <input id = "to_email" class="form-control" placeholder="Ingrese la direccion de su correo electronico">
                                         </div>
 
                                         <div class="form-group">
@@ -253,13 +258,20 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR-HTVXvgayiCtbzDo6mIGtCK
 <script>
     function denunciar()
     {
+        var email = document.getElementById("to_email").value;
+        
+
+        var name = document.getElementById("to_name").value;
+        
+        var repnum = Math.floor((Math.random() * 100000000) + 1);
+        emailjs.send("denuncias_bogota","denuncia_exitosa",{to_email: email, to_name: name, report_number: repnum});
         alert("Se ha registrado la denuncia con exito. Pronto te llegara un correo electronico con mas informacion");
-        window.location.replace("./login.html");
+        window.location.replace("./index.html");
     }
 
     function salir()
     {
-        window.location.replace("./login.html");
+        window.location.replace("./index.html");
     }
 </script>   
 

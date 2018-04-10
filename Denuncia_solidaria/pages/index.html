@@ -58,17 +58,6 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
                         <li>
                                 <li>
                                         <a href="forms.html"><i class="fa fa-table fa-fw"></i> Denuncias</a>
@@ -117,7 +106,11 @@
                         
                             <div class="form-group">
                                     <label>Busca tu estacion de policia mas cercana</label> 
-                                    <button type="button" class="btn btn-info" onclick="buscar_estacion()">Mostrar mi ubicacion</button>  
+                                    <button type="button" class="btn btn-info" onclick="buscar_estacion()">Mostrar mi ubicacion</button>
+                                      
+                            </div>
+
+                            <div id="search_result">
                             </div>
                     </td>
                 </tr>
@@ -208,11 +201,95 @@
                     title: 'Estación de Policía Kennedy'
                     });
                     marker8.setMap(map);
+                    
+                    var pol9 = {lat: 4.6683357,	lng:-74.1483223};
 
+                    var marker9 = new google.maps.Marker({
+                    position: pol9,
+                    title: 'Estación de Policía Fontibón'
+                    });
+                    marker9.setMap(map);
+
+                    var pol10 = {lat: 4.690164,	lng:-74.1028};
+
+                    var marker10 = new google.maps.Marker({
+                    position: pol10,
+                    title: 'Estación de Policía Engativá'
+                    });
+                    marker10.setMap(map);
                     
+                    var pol11 = {lat: 4.7396809, lng:-74.0853058};
+
+                    var marker11 = new google.maps.Marker({
+                    position: pol11,
+                    title: 'Estación de Policía Suba'
+                    });
+                    marker11.setMap(map);
+
+                    var pol12 = {lat: 4.6740457, lng:-74.0816517};
+
+                    var marker12 = new google.maps.Marker({
+                    position: pol12,
+                    title: 'Estación de Policía Barrios Unidos'
+                    });
+                    marker12.setMap(map);
                     
+                    var pol13 = {lat: 4.5990399, lng:-74.0826304};
+
+                    var marker13 = new google.maps.Marker({
+                    position: pol13,
+                    title: 'Estación de Policía Teusaquillo'
+                    });
+                    marker13.setMap(map);
+
+                    var pol14 = {lat: 4.6089982, lng:-74.0889614};
+
+                    var marker14 = new google.maps.Marker({
+                    position: pol14,
+                    title: 'Estación de Policía Mártires'
+                    });
+                    marker14.setMap(map);
                     
+                    var pol15 = {lat: 4.5863589, lng:-74.1028417};
+
+                    var marker15 = new google.maps.Marker({
+                    position: pol15,
+                    title: 'Estación de Policía Antonio Nariño'
+                    });
+                    marker15.setMap(map);
                     
+                    var pol16 = {lat: 4.6172075, lng:-74.1026807};
+
+                    var marker16 = new google.maps.Marker({
+                    position: pol16,
+                    title: 'Estación de Policía Puente Aranda'
+                    });
+                    marker16.setMap(map);
+
+                    var pol17 = {lat: 4.5915429, lng:-74.0791558};
+
+                    var marker17 = new google.maps.Marker({
+                    position: pol17,
+                    title: 'Estación de Policía Candelaria'
+                    });
+                    marker17.setMap(map);
+
+                    var pol18 = {lat: 4.5856479, lng:-74.1105738};
+
+                    var marker18 = new google.maps.Marker({
+                    position: pol18,
+                    title: 'Estación de Policía Rafael Uribe'
+                    });
+                    marker18.setMap(map);
+                    
+                    var pol19 = {lat: 4.5768753, lng:-74.1643779};
+
+                    var marker19 = new google.maps.Marker({
+                    position: pol19,
+                    title: 'Estación de Policía Ciudad Bolívar'
+                    });
+                    marker19.setMap(map);
+
 
 
                     
@@ -221,8 +298,8 @@
 
             }
 
-            function buscar_estacion()
-                {
+    function buscar_estacion()
+    {
                     
                     var user_latitude;
                     var user_longitude;
@@ -251,19 +328,135 @@
                     });
                     user_marker.setMap(map);
                     map.setCenter(userPos);
+                    
+                    var latitudes= [4.7416959,
+                                    4.6413995,
+                                    4.6021754,
+                                    4.6041377,
+                                    4.516788,
+                                    4.5855283,
+                                    4.6001443,
+                                    4.6202813,
+                                    4.6683357,
+                                    4.690164,
+                                    4.7396809,
+                                    4.6740457,
+                                    4.5990399,
+                                    4.6089982,
+                                    4.5863589,
+                                    4.6172075,
+                                    4.5915429,
+                                    4.5856479,
+                                    4.5768753];
+                    var longitudes = [-74.0259599,
+                                    -74.058852,
+                                    -74.0658331,
+                                    -74.1238941,
+                                    -74.116996,
+                                    -74.1332516,
+                                    -74.1865325,
+                                    -74.1596611,
+                                    -74.1483223,
+                                    -74.1028,
+                                    -74.0853058,
+                                    -74.0816517,
+                                    -74.0826304,
+                                    -74.0889614,
+                                    -74.1028417,
+                                    -74.1026807,
+                                    -74.0791558,
+                                    -74.1105738,
+                                    -74.1643779];
+                    var quantity = 19;
+
+                    var distance = 9999999;
+                    var index = -1;
+                    
+                    for(i =0; i<quantity;i++)
+                    {
+                        var new_distance = getDistanceFromLatLonInKm(user_latitude,user_longitude,
+                        latitudes[i],longitudes[i]);
+                        if(new_distance < distance)
+                        {
+                            distance = new_distance;
+                            index = i;
+                        }
+
+                    }
+
+                    var police_name = ["Estación De Policía Usaquén",
+"Estación De Policía Chapinero",
+"Estación de Policía Santa Fé",
+"Estación de Policía San Cristobal",
+"Estación de Policía Usme",
+"Estación de Policía Tunjuelito",
+"Estación de Policía Bosa",
+"Estación de Policía Kennedy",
+"Estación de Policía Fontibón",
+"Estación de Policía Engativá",
+"Estación de Policía Suba",
+"Estación de Policía Barrios Unidos",
+"Estación de Policía Teusaquillo",
+"Estación de Policía Mártires",
+"Estación de Policía Antonio Nariño",
+"Estación de Policía Puente Aranda",
+"Estación de Policía Candelaria",
+"Estación de Policía Rafael Uribe",
+"Estación de Policía Ciudad Bolívar"];
+
+var police_address = ["Calle 165 # 8A-43",
+"Carrera 2 # 56-40",
+"Carrera 1 # 18A-90",
+"Av. 1 de Mayo # 1-90 Este",
+"Avenida Usme # 96a-97 Sur",
+"Transversal 33 # 48c-21 Sur",
+"Calle 65J Sur # 77n-23",
+"Calle 41D Sur # 78N-05",
+"Carrera 98 # 16B-50",
+"Carrera 78A # 70-54",
+"Carrera 92 # 146-49",
+"Calle 72 # 62-81",
+"Carrera 13 # 39-86",
+"Cr 24 # 12-32",
+"Carrera 24 # 18-90 Sur",
+"Carrera 39 # 10-25",
+"Carrera 7 # 6A-12",
+"Calle 27 Sur # 24C-51",
+"Diagonal 70 Sur # 54-14"];
+
+
+document.getElementById("search_result").innerHTML = "La estacion mas cercana es "+police_name[index] +" ubicada en "+ police_address[index];                    
+
+
+
+
+                    
                     });
                     
-
-                    var coordinates = [{},]
-
-
-
-
-                }
-
                     
 
-                  </script>
+    }
+
+    function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) 
+    {
+        var R = 6371; // Radius of the earth in km
+        var dLat = deg2rad(lat2-lat1);  // deg2rad below
+        var dLon = deg2rad(lon2-lon1); 
+        var a = 
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2); 
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        var d = R * c; // Distance in km
+        return d;
+    }
+
+    function deg2rad(deg) 
+    {
+        return deg * (Math.PI/180)
+    }
+
+    </script>
     
 
 
