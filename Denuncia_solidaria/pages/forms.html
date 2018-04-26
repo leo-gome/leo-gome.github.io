@@ -60,14 +60,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
+                           
                             <!-- /input-group -->
                         </li>
                         <li>
@@ -77,6 +70,10 @@
                         </li>
                         <li>
                                 <a href="index.html"><i class="fa fa-table fa-fw"></i> Mapa de Estaciones de Policia</a>
+                        </li>
+
+                        <li>
+                                <a href="heatmap.html"><i class="fa fa-table fa-fw"></i> Mapa de Seguridad Bogota</a>
                         </li>
                     </ul>
                 </div>
@@ -134,22 +131,57 @@
 
                                         <div class="form-group">
                                                 <label>Tipo de Delito</label>
-                                                <select class="form-control">
-                                                    <option>Robo a persona</option>
-                                                    <option>Robo a establecimiento</option>
-                                                    <option>Agresion</option>
+                                                <select id ="tipo_delito" class="form-control" onchange="mostrarElementos()">
+                                                    <option value="persona">Robo personal</option>
+                                                    <option value="establecimiento">Robo a establecimiento</option>
+                                                    <option value ="agresion">Agresion</option>
                                                 </select>
                                         </div>
 
+                                        <div id="elementos" class="form-group">
+                                                <label>Elementos Perdidos</label>
+                                                <p>
+                                                <label><input id="cedula" type="checkbox" >Cedula</label>
+                                                </p>
+                                                <p>
+                                                        <label><input id="credito" type="checkbox" >Tarjeta Credito/Debito</label>
+                                                </p>
+                                                <p>
+                                                        <label><input id="pase" type="checkbox" >Licencia de Conduccion</label>
+                                                </p>
+                                                
+                                                <p>
+                                                        <label><input id="celular" type="checkbox" >Celular</label>
+                                                </p>
+                                                <p>
+                                                        <label><input id="militar" type="checkbox" >Libreta Militar</label>
+                                                </p>
+                                               
+                                                <p>
+                                                <label><input id="otros" type = "checkbox"> Otros</label>
+                                                <p>
+                                                <label>Descripcion de elementos:</label>
+                                                        <input id = "otros" class="form-control" placeholder="Descripcion de los elementos perdidos">
+                                                </p>
+                                                </p>
+
+
+                                        </div>
                                        
 
                                         <div class="form-group">
                                                 <label>Ubicacion de los hechos</label>
-                                                <div style="width:100%; height:400px;">
+                                                <p> Por favor ingrese la direccion del evento</p>
+                                                <div class="form-group">
+                                                        <label>Direccion Evento:</label>
+                                                        <input id = "address" class="form-control" placeholder="Ingrese la direccion del evento">
+                                                </div>
+                                                <div id="mapa" style="width:100%; height:400px;">
+                                                        <p>o ubique en el mapa la zona de los hechos.</p>
                                                         <div id="map" style="width: 100%; height: 100%"></div>
                                                         
                                                 </div>  
-                                                <button type="button" class="btn btn-info" onclick="centrar_ubicacion()">Mostrar mi ubicacion</button>  
+                                                  
                                         </div>
 
                                         <div class="form-group">
@@ -195,15 +227,74 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 
     <script>
+    function mostrarElementos()
+    {
+        var tipo = document.getElementById("tipo_delito").value;
+           
+        if(tipo == "persona")
+        {
+            document.getElementById("elementos").style.display = "block";
+        }
+        else
+        {
+            document.getElementById("elementos").style.display = "none";
+        }
+
+        if(tipo == "persona" || tipo =="agresion")
+        {
+            document.getElementById("mapa").style.display = "block";
+        }
+        else
+        {
+            document.getElementById("mapa").style.display = "none";
+        }
+    }
+    
+    </script>
+
+
+
+    <script>
 
             var map;
             function initMap() {
               var uluru = {lat: 4.7110, lng: -74.0721};
-              map = new google.maps.Map(document.getElementById('map'), {
+              map = new google.maps.Map(document.getElementById('map'),     {
                 zoom: 11,
                 center: uluru
               });
+            
+              var marker;
+              google.maps.event.addListener(map, 'click', function (e) {
+ 
+ //Determine the location where the user has clicked.
+ var location = e.latLng;
+if(marker)
+{
+    marker.setPosition(location);
+}
+else
+{
+    marker = new google.maps.Marker({
+     position: location,
+     map: map
+ });
+}
+ //Create a marker and placed it on the map.
+ 
 
+ //Attach click event handler to the marker.
+ google.maps.event.addListener(marker, "click", function (e) {
+     var infoWindow = new google.maps.InfoWindow({
+         content: 'Latitude: ' + location.lat() + '<br />Longitude: ' + location.lng()
+     });
+     infoWindow.open(map, marker);
+ });
+});
+
+
+    
+    
     }
 
     function centrar_ubicacion()
@@ -266,7 +357,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR-HTVXvgayiCtbzDo6mIGtCK
         var repnum = Math.floor((Math.random() * 100000000) + 1);
         emailjs.send("denuncias_bogota","denuncia_exitosa",{to_email: email, to_name: name, report_number: repnum});
         alert("Se ha registrado la denuncia con exito. Pronto te llegara un correo electronico con mas informacion");
-        window.location.replace("./index.html");
+        window.location.replace("./results.html");
     }
 
     function salir()
